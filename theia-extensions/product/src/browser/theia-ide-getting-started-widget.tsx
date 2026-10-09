@@ -99,4 +99,14 @@ export class TheiaIDEGettingStartedWidget extends GettingStartedWidget {
             {'Version ' + (this.applicationInfo?.version ?? '-') + ' · VS Code API ' + (this.vscodeApiVersion ?? '-')}
         </p>;
     }
+
+    protected renderHelp(): React.ReactNode {
+        return <div className='gs-section'>
+            <h3 className='gs-section-header'>Help</h3>
+            <div><a href='https://github.com/bhuvan123468/codeshield-ide/blob/master/codeshield-extension/README.md'
+                target='_blank' rel='noopener noreferrer'>CodeShield documentation</a></div>
+            <div><a href='https://github.com/bhuvan123468/codeshield-ide/issues/new'
+                target='_blank' rel='noopener noreferrer'>Report a CodeShield issue</a></div>
+        </div>;
+    }
 }

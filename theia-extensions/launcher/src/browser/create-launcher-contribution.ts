@@ -19,7 +19,7 @@ export namespace LauncherCommands {
     export const CREATE_LAUNCHER: Command = {
         id: 'theia-ide.launcher.create',
         label: 'Create CLI Launcher',
-        category: 'Theia IDE'
+        category: 'CodeShield IDE'
     };
 }
 

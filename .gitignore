@@ -10,5 +10,7 @@
 *.log
 license-check-summary.txt*
 .theia-ide/chatSessions
+.codeshield-ide/
+applications/*/resources/branding/
 .prompts
 **/test-screenshots

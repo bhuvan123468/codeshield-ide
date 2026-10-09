@@ -1,19 +1,19 @@
 {
   "private": true,
   "name": "theia-ide-next-electron-app",
-  "description": "Eclipse Theia IDE Next product",
-  "productName": "Theia IDE Next",
+  "description": "CodeShield IDE: AI-assisted secure Java development",
+  "productName": "CodeShield IDE",
   "version": "1.77.0-next-2026-10-07",
   "main": "scripts/theia-electron-main.js",
   "license": "MIT",
   "author": "Eclipse Theia <theia-dev@eclipse.org>",
-  "homepage": "https://github.com/eclipse-theia/theia-ide#readme",
+  "homepage": "https://github.com/bhuvan123468/codeshield-ide#readme",
   "bugs": {
-    "url": "https://github.com/eclipse-theia/theia/issues"
+    "url": "https://github.com/bhuvan123468/codeshield-ide/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eclipse-theia/theia-ide.git"
+    "url": "git+https://github.com/bhuvan123468/codeshield-ide.git"
   },
   "engines": {
     "yarn": ">=1.7.0 <2",
@@ -23,23 +23,19 @@
     "target": "electron",
     "frontend": {
       "config": {
-        "applicationName": "Theia IDE Next",
+        "applicationName": "CodeShield IDE",
         "brandingVariant": "next",
-        "availableUpdateChannels": [
-          "next"
-        ],
         "reloadOnReconnect": true,
         "preferences": {
           "toolbar.showToolbar": true,
-          "updates.channel": "next",
           "ai-features.chat.tokenUsageIndicator.enabled": true
         },
         "electron": {
-          "uriScheme": "theia-next",
-          "appUserModelId": "eclipse.theia.next",
+          "uriScheme": "codeshield",
+          "appUserModelId": "com.codeshield.ide",
           "showWindowEarly": false,
           "splashScreenOptions": {
-            "content": "resources/TheiaIDENextSplash.svg",
+            "content": "resources/branding/logo.svg",
             "height": 276,
             "width": 446
           }
@@ -51,7 +47,7 @@
         "frontendConnectionTimeout": -1,
         "startupTimeout": -1,
         "resolveSystemPlugins": false,
-        "configurationFolder": ".theia-ide-next"
+        "configurationFolder": ".codeshield-ide"
       }
     },
     "generator": {
@@ -138,8 +134,7 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "theia-ide-launcher-ext": "1.77.0-next-2026-10-07",
-    "theia-ide-product-ext": "1.77.0-next-2026-10-07",
-    "theia-ide-updater-ext": "1.77.0-next-2026-10-07"
+    "theia-ide-product-ext": "1.77.0-next-2026-10-07"
   },
   "devDependencies": {
     "@theia/bundle-plugin": "1.77.0-next.25",
@@ -179,7 +174,7 @@
     "start:debug": "yarn start --log-level=debug",
     "package": "yarn clean:dist && yarn rebuild && electron-builder -c.mac.identity=null --publish never",
     "package:prod": "yarn deploy",
-    "deploy": "yarn clean:dist && yarn rebuild && electron-builder -c.mac.identity=null --publish always",
+    "deploy": "yarn clean:dist && yarn rebuild && electron-builder -c.mac.identity=null --publish never",
     "package:preview": "yarn clean:dist && yarn rebuild && electron-builder -c.mac.identity=null --dir",
     "update:theia": "ts-node ../../scripts/update-theia-version.ts",
     "update:next": "ts-node ../../scripts/update-theia-version.ts next",
