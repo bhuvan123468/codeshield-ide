@@ -8,14 +8,12 @@
  ********************************************************************************/
 
 :root {
-    --theia-branding-logo: url(../icons/TheiaIDE.png);
-    --theia-branding-icon: url(../icons/512-512.png);
+    --theia-branding-logo: url(../../../../../branding/logo.svg);
+    --theia-branding-icon: url(../../../../../branding/icon.png);
     --theia-branding-accent: #5088e7;
 }
 
 body[data-theia-branding="next"] {
-    --theia-branding-logo: url(../icons/TheiaIDE-next.png);
-    --theia-branding-icon: url(../icons/512-512-next.png);
     /* The exact purple of the `next` application icon, so the product name matches it. */
     --theia-branding-accent: #8b5cf6;
 }

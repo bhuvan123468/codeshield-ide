@@ -6,6 +6,10 @@ import { browserOptions, watch } from './gen-esbuild.browser.mjs';
 import { nodeOptions } from './gen-esbuild.node.mjs';
 import { electronOptions } from './gen-esbuild.electron.mjs';
 import esbuild from 'esbuild';
+import { fileURLToPath } from 'node:url';
+import { stageBranding } from '../../scripts/branding-assets.js';
+
+stageBranding(fileURLToPath(new URL('.', import.meta.url)));
 
 const browserContext = await esbuild.context(browserOptions);
 const nodeContext = await esbuild.context(nodeOptions);

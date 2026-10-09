@@ -17,7 +17,7 @@ export namespace TheiaIDEMenus {
     export const THEIA_IDE_HELP: MenuPath = [...CommonMenus.HELP, 'theia-ide'];
 }
 export namespace TheiaIDECommands {
-    export const CATEGORY = 'TheiaIDE';
+    export const CATEGORY = 'CodeShield IDE';
     export const REPORT_ISSUE: Command = {
         id: 'theia-ide:report-issue',
         category: CATEGORY,
@@ -36,8 +36,8 @@ export class TheiaIDEContribution implements CommandContribution, MenuContributi
     @inject(WindowService)
     protected readonly windowService: WindowService;
 
-    static REPORT_ISSUE_URL = 'https://github.com/eclipse-theia/theia-ide/issues/new?assignees=&labels=&template=bug_report.md';
-    static DOCUMENTATION_URL = 'https://theia-ide.org/docs/user_getting_started/';
+    static REPORT_ISSUE_URL = 'https://github.com/bhuvan123468/codeshield-ide/issues/new';
+    static DOCUMENTATION_URL = 'https://github.com/bhuvan123468/codeshield-ide/blob/master/codeshield-extension/README.md';
 
     registerCommands(commandRegistry: CommandRegistry): void {
         commandRegistry.registerCommand(TheiaIDECommands.REPORT_ISSUE, {

@@ -143,7 +143,7 @@ setsid -f ${t} "$@" >> ${l} 2>&1 < /dev/null
         }
         const shouldCreateLauncher: boolean = !!request.body.create;
         const launcher = `/usr/local/bin/${uriScheme}`;
-        const sudoPromptName = uriScheme === 'theia-next' ? 'Theia IDE Next' : 'Theia IDE';
+        const sudoPromptName = 'CodeShield IDE';
         const target = process.env.APPIMAGE;
         const logFile = await this.getLogFilePath();
         if (shouldCreateLauncher) {

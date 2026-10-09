@@ -1,5 +1,6 @@
-appId: eclipse.theia.next
-productName: TheiaIDENext
+appId: com.codeshield.ide
+productName: CodeShield IDE
+publish: null
 copyright: Copyright © 2020-2026 Eclipse Foundation, Inc
 electronDist: ../../node_modules/electron/dist
 electronVersion: 42.8.1
@@ -19,20 +20,28 @@ directories:
 files:
   - src-gen
   - lib
-  - resources/icons/WindowIcon/512-512.png
-  - resources/TheiaIDENextSplash.svg
+  - resources/branding
   - scripts
   - "!**node_modules/**"
 extraResources:
   - from: ../../plugins
     to: app/plugins
 
+win:
+  icon: ../../branding/icon.ico
+mac:
+  icon: ../../branding/icon.icns
+  protocols:
+    - name: CodeShield IDE
+      schemes:
+        - codeshield
+
 linux:
-  icon: resources/icons/LinuxLauncherIcons
+  icon: ../../branding/icon.png
   category: Development
   mimeTypes:
     - inode/directory
-  vendor: Eclipse Foundation, Inc
+  vendor: CodeShield
   target:
     - deb
     - AppImage

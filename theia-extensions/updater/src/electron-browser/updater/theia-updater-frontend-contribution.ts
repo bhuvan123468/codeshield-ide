@@ -28,7 +28,7 @@ import { URI as VSCodeURI } from 'vscode-uri';
 
 export namespace TheiaUpdaterCommands {
 
-    const category = 'Theia Electron Updater';
+    const category = 'CodeShield IDE Updater';
 
     export const CHECK_FOR_UPDATES: Command = {
         id: 'electron-theia:check-for-updates',
@@ -218,7 +218,7 @@ export class TheiaUpdaterFrontendContribution implements CommandContribution, Me
         if (answer === 'Yes') {
             this.stopProgress();
             this.progress = await this.messageService.showProgress({
-                text: 'Theia IDE Update',
+                text: 'CodeShield IDE Update',
                 options: { cancelable: true }
             }, () => this.updater.cancel());
             let dots = 0;

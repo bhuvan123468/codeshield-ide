@@ -11,7 +11,6 @@ import { codicon } from '@theia/core/lib/browser';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import { environment } from '@theia/core/lib/common';
 import * as React from 'react';
-import { getBrandingVariant } from './theia-ide-config';
 
 export interface ExternalBrowserLinkProps {
     text: string;
@@ -20,12 +19,10 @@ export interface ExternalBrowserLinkProps {
 }
 
 export function renderProductName(): React.ReactNode {
-    const variant = getBrandingVariant();
-    const suffix = variant !== 'stable' ? ` ${variant.charAt(0).toUpperCase() + variant.slice(1)}` : '';
-    return <h1>Eclipse Theia <span className="tide-branding-accent">IDE</span>{suffix}</h1>;
+    return <h1>CodeShield <span className="tide-branding-accent">IDE</span></h1>;
 }
 
-export const DOWNLOAD_URL = 'https://theia-ide.org/#theiaidedownload';
+export const PROJECT_URL = 'https://github.com/bhuvan123468/codeshield-ide';
 
 function BrowserLink(props: ExternalBrowserLinkProps): React.JSX.Element {
     return <a
@@ -50,13 +47,11 @@ export function renderWhatIs(windowService: WindowService): React.ReactNode {
             What is this?
         </h3>
         <div>
-            The Eclipse Theia IDE is a modern and open IDE for cloud and desktop, built on
-            the <BrowserLink text="Theia platform" url="https://theia-ide.org" windowService={windowService} />.
+            CodeShield IDE: AI-assisted secure Java development
         </div>
         <div>
-            You can get it as a <BrowserLink text="desktop application" url={DOWNLOAD_URL} windowService={windowService} /> or <BrowserLink
-                text="try the latest version online" url="https://try.theia-cloud.io/" windowService={windowService} />. The online version is limited to
-            30 minutes per session and hosted on <BrowserLink text="Theia Cloud" url="https://theia-cloud.io/" windowService={windowService} />.
+            Open a Java file and use the CodeShield Dashboard to scan for vulnerabilities, preview AI-assisted fixes, and review validation results.
+            Built on the <BrowserLink text="Eclipse Theia platform" url="https://theia-ide.org" windowService={windowService} />.
         </div>
     </div>;
 }
@@ -101,7 +96,7 @@ export function renderSupport(windowService: WindowService): React.ReactNode {
             Professional Support
         </h3>
         <div>
-            Professional support, implementation services, consulting and training for the Theia IDE and for other tools based on Eclipse Theia are available
+            Professional support for the underlying Eclipse Theia platform is available
             from selected companies. They are listed on
             the <BrowserLink text="Theia support page" url="https://theia-ide.org/support/" windowService={windowService} />.
         </div>
@@ -115,15 +110,13 @@ export function renderCommunity(windowService: WindowService): React.ReactNode {
             Community
         </h3>
         <div>
-            The features of the Theia IDE come from Theia and the included extensions, while this project packages them into a product and its installers. So
-            please report a bug in a feature to the <BrowserLink text="Theia project"
-                url="https://github.com/eclipse-theia/theia/issues/new/choose" windowService={windowService} />, and anything wrong with the packaging or the
-            installers to the <BrowserLink text="Theia IDE project" url="https://github.com/eclipse-theia/theia-ide/issues/new/choose"
-                windowService={windowService} />.
+            Report CodeShield issues to the <BrowserLink text="CodeShield IDE project" url={PROJECT_URL + '/issues/new'}
+                windowService={windowService} />. For issues in the underlying platform, see the <BrowserLink text="Eclipse Theia project"
+                url="https://github.com/eclipse-theia/theia/issues/new/choose" windowService={windowService} />.
         </div>
         <div>
-            The <BrowserLink text="source code" url="https://github.com/eclipse-theia/theia-ide" windowService={windowService} /> of the Theia IDE is available
-            on GitHub.
+            The <BrowserLink text="CodeShield IDE source code" url={PROJECT_URL} windowService={windowService} /> is available on GitHub.
+            Eclipse copyright and license notices remain included.
         </div>
     </div>;
 }
@@ -133,8 +126,7 @@ export interface BrandingProps {
 }
 
 /**
- * Renders nothing outside of the desktop application: the updater and its `updates.*` preferences are
- * contributed by `theia-ide-updater-ext`, which is part of the Electron builds only.
+ * Explain the desktop update policy. The inherited updater is excluded from CodeShield builds.
  */
 export function renderUpdates(props: BrandingProps): React.ReactNode {
     if (!environment.electron.is()) {
@@ -146,12 +138,8 @@ export function renderUpdates(props: BrandingProps): React.ReactNode {
             Updates
         </h3>
         <div>
-            You can update the Theia IDE directly in this application from Help {'>'} Check for Updates… It also checks for updates automatically
-            after each launch.
-        </div>
-        <div>
-            You can also download the most recent version from
-            the <BrowserLink text="download page" url={DOWNLOAD_URL} windowService={props.windowService} />.
+            Automatic updates are disabled until a CodeShield release feed is configured. See the
+            <BrowserLink text="CodeShield IDE project" url={PROJECT_URL} windowService={props.windowService} /> for project information.
         </div>
     </div>;
 }
