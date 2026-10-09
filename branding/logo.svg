@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="446" height="276" viewBox="0 0 446 276">
+  <title>CodeShield IDE</title>
+  <desc>AI-assisted secure Java development</desc>
+  <rect width="446" height="276" rx="16" fill="#17212d"/>
+  <g transform="translate(175 28) scale(4)" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round">
+    <path d="M12 2.5 20 6v6c0 4.2-3.1 7.6-8 9.5C7.1 19.6 4 16.2 4 12V6z"/>
+    <path stroke-linecap="round" d="m8 12 2.5 2.5L16 9"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Arial, sans-serif">
+    <text x="223" y="180" font-size="34" font-weight="bold">CodeShield IDE</text>
+    <text x="223" y="215" font-size="16">AI-assisted secure Java development</text>
+  </g>
+</svg>

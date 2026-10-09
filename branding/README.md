@@ -1,6 +1,6 @@
 # CodeShield IDE branding
 
-Supply your own artwork in this repository's root `branding/` directory. No replacement images or placeholder logos have been generated.
+The root `branding/` directory now contains artwork based on the existing CodeShield activity-bar shield, added with your approval. `icon.svg` is the editable vector source; PNG, ICO and ICNS files provide platform icons. You may replace them later while keeping the filenames below.
 
 | File | Required format and size | Used for |
 | --- | --- | --- |
