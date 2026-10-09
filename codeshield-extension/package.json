@@ -1,0 +1,31 @@
+{
+  "name": "codeshield",
+  "displayName": "CodeShield",
+  "description": "AI-assisted secure Java development",
+  "version": "0.1.0",
+  "publisher": "codeshield",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0", "node": ">=18" },
+  "categories": ["Linters"],
+  "main": "./dist/extension.js",
+  "activationEvents": ["onStartupFinished", "onLanguage:java", "onView:codeshield.dashboard", "onCommand:codeshield.scanFile", "onCommand:codeshield.autoFix"],
+  "repository": { "type": "git", "url": "https://github.com/bhuvan123468/codeshield-ide.git", "directory": "codeshield-extension" },
+  "scripts": { "compile": "tsc -p .", "check": "tsc -p . --noEmit", "test": "npm run compile && node --test tests/*.test.cjs", "package": "npm run compile && vsce package --no-dependencies" },
+  "devDependencies": { "@types/vscode": "1.85.0", "@types/node": "18.19.130", "typescript": "5.9.3", "@vscode/vsce": "3.7.1" },
+  "contributes": {
+    "commands": [
+      { "command": "codeshield.scanFile", "title": "CodeShield: Scan File" },
+      { "command": "codeshield.autoFix", "title": "CodeShield: Auto-Fix and Validate" }
+    ],
+    "viewsContainers": { "activitybar": [{ "id": "codeshield", "title": "CodeShield", "icon": "media/shield.svg" }] },
+    "views": { "codeshield": [{ "id": "codeshield.dashboard", "name": "Dashboard", "type": "webview" }] },
+    "configuration": {
+      "title": "CodeShield",
+      "properties": {
+        "codeshield.backendUrl": { "type": "string", "default": "http://127.0.0.1:8080", "description": "Spring Boot backend URL." },
+        "codeshield.ollamaUrl": { "type": "string", "default": "http://127.0.0.1:11434", "description": "Ollama URL." },
+        "codeshield.timeoutSeconds": { "type": "number", "default": 120, "minimum": 1, "maximum": 600, "description": "Timeout for each backend request in seconds." }
+      }
+    }
+  }
+}
