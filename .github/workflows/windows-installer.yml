@@ -8,12 +8,15 @@ permissions:
 
 jobs:
   windows-installer:
-    runs-on: windows-latest
+    # node-gyp 11 in this repo recognizes Visual Studio 2022, not the VS 2026
+    # installation currently provided by windows-latest.
+    runs-on: windows-2022
     timeout-minutes: 90
     env:
       NODE_OPTIONS: --max_old_space_size=4096
       CSC_IDENTITY_AUTO_DISCOVERY: 'false'
       THEIA_IDE_JENKINS_CI: 'false'
+      npm_config_msvs_version: '2022'
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -29,6 +32,14 @@ jobs:
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: '3.13'
+
+      - name: Select Python for native dependency compilation
+        shell: pwsh
+        run: |
+          $pythonExe = Join-Path $env:pythonLocation 'python.exe'
+          if (-not (Test-Path -LiteralPath $pythonExe)) { throw 'Selected Python executable is missing.' }
+          "NODE_GYP_FORCE_PYTHON=$pythonExe" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          & $pythonExe --version
 
       - name: Check required Windows branding assets
         shell: pwsh

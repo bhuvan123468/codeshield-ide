@@ -111,7 +111,7 @@ Commit and push `.github/workflows/windows-installer.yml` and all source/brandin
 
 1. Open **Actions → CodeShield IDE Windows Installer → Run workflow**.
 2. Select the branch containing the finished source and artwork, and run it.
-3. Wait for the single `windows-latest` job.
+3. Wait for the single `windows-2022` job. This runner provides Visual Studio 2022, compatible with the repository's native dependency build tooling.
 4. Download **CodeShield-IDE-Windows-unsigned** from the run's Artifacts section, extract it, and run the `.exe` on Windows.
 
 The workflow uses the repo's extension build, Electron dev build, plugin download/bundle, and Electron package scripts. It builds an x64 NSIS installer without signing or publishing. The updater is excluded. There are no macOS/Linux jobs. No signing secrets or backend services are needed. Windows may show a SmartScreen warning because the installer is unsigned.
